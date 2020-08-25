@@ -47,38 +47,21 @@ BASIC_AUTH_USER:  testman
 
 ## users テーブル
 
-| Column               | Type    | Options     |
-| -------------------- | ------- | ----------- |
-| id                   | integer | null: false |
-| nickname             | string  | null: false |
-| email                | string  | null: false |
-| password             | string  | null: false |
-| first_name           | string  | null: false |
-| family_name          | string  | null: false |
-| フリガナ(first_name)  | string  | null: false |
-| フリガナ(family_name) | string  | null: false |
-| birthday             | date    | null: false |
+| Column           | Type    | Options     |
+| ---------------- | ------- | ----------- |
+| nickname         | string  | null: false |
+| email            | string  | null: false |
+| password         | string  | null: false |
+| first_name       | string  | null: false |
+| family_name      | string  | null: false |
+| first_name_kana  | string  | null: false |
+| family_name_kana | string  | null: false |
+| birthday         | date    | null: false |
 
 ### Association
 
-- has_many :users_credit_cards
 - has_many :users_addresses
 - has_many :products
-
-
-## users_credit_cardsテーブル
-
-| Column        | Type    | Options                        |
-| ------------- | ------- | ------------------------------ |
-| users_id      | integer | null: false, foreign_key: true |
-| number        | string  | null: false                    |
-| expiratiom    | string  | null: false                    |
-| security_code | integer | null: false                    |
-
-### Association
-
-- belongs_to :users
-- has_one_attached :products
 
 
 ## users_addressesテーブル
@@ -96,28 +79,25 @@ BASIC_AUTH_USER:  testman
 ### Association
 
 - belongs_to :users
-- has_one_attached :products
-- belongs_to_active_hash :prefecture
+- belongs_to :products
 
 
 ## productsテーブル
 
-| Column           | Type    | Options     |
-| ---------------- | ------- | ----------- |
-| id               | integer | null: false |
-| name             | string  | null: false |
-| image            | string  | null: false |
-| description      | text    | null: false |
-| price            | integer | null: false |
-| user             | string  | null: false |
-| category         | string  | null: false |
-| condition        | string  | null: false |
-| postage_type     | string  | null: false |
-| prefectures      | string  | null: false |
-| preparation_days | string  | null: false |
+| Column           | Type    | Options                        |
+| ---------------- | ------- | ------------------------------ |
+| name             | string  | null: false                    |
+| image            | string  | null: false                    |
+| description      | text    | null: false                    |
+| price            | integer | null: false                    |
+| user             | string  | null: false, foreign_key: true |
+| category         | string  | null: false                    |
+| condition        | string  | null: false                    |
+| postage_type     | string  | null: false                    |
+| prefectures      | string  | null: false                    |
+| preparation_days | string  | null: false                    |
 
 ### Association
 
 - belongs_to :users
-- has_one_attached :users_credit_card
-- has_one_attached :users_addresses
+- belongs_to :users_addresses
