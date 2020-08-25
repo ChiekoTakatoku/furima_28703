@@ -100,4 +100,12 @@ BASIC_AUTH_USER:  testman
 ### Association
 
 - belongs_to :users
-- belongs_to :users_addresses
+- has_one :users_addresses
+
+
+## purchase_infoテーブル
+
+| Column      | Type    | Options                        |
+| ----------- | ------- | ------------------------------ |
+| users_id    | integer | null: false, foreign_key: true |
+| products_id | integer | null: false, foreign_key: true |
