@@ -1,0 +1,2 @@
+class Uesr < ApplicationRecord
+end
