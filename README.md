@@ -22,3 +22,94 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+## アプリケーション名
+furima_28703
+
+## アプリケーション概要
+誰でも簡単に出品・購入ができるフリマアプリ
+
+## デプロイ先URL
+https://furima-28703.herokuapp.com
+
+## テスト用アカウント
+BASIC_AUTH_PASSWORD:  9999
+BASIC_AUTH_USER:  testman
+
+## 利用方法
+アカウントを作成することで、アプリケーション上での買い物と出品が可能となる。
+
+## 目指した課題解決
+自宅などにある不要になった物などを捨てずに、必要な人のもとへ届けることができる。それにより無駄なゴミを減らし、誰でも簡単にリサイクルをできるようにする。
+
+
+# テーブル設計
+
+## users テーブル
+
+| Column           | Type    | Options     |
+| ---------------- | ------- | ----------- |
+| nickname         | string  | null: false |
+| email            | string  | null: false |
+| password         | string  | null: false |
+| first_name       | string  | null: false |
+| family_name      | string  | null: false |
+| first_name_kana  | string  | null: false |
+| family_name_kana | string  | null: false |
+| birthday         | date    | null: false |
+
+### Association
+
+- has_many :products
+- has_many :purchase_info
+
+
+## users_addressesテーブル
+
+| Column       | Type    | Options                        |
+| ------------ | ------- | ------------------------------ |
+| product_id   | integer | null: false, foreign_key: true |
+| postal_code  | string  | null: false                    |
+| prefectures  | integer | null: false                    |
+| city         | string  | null: false                    |
+| address      | string  | null: false                    |
+| building     | string  |                                |
+| phone_number | string  | null: false                    |
+
+### Association
+
+- belongs_to :product
+
+
+## productsテーブル
+
+| Column           | Type    | Options                        |
+| ---------------- | ------- | ------------------------------ |
+| name             | string  | null: false                    |
+| image            | string  | null: false                    |
+| description      | text    | null: false                    |
+| price            | integer | null: false                    |
+| user             | integer | null: false, foreign_key: true |
+| category         | integer | null: false                    |
+| condition        | integer | null: false                    |
+| postage_type     | integer | null: false                    |
+| prefectures      | integer | null: false                    |
+| preparation_days | integer | null: false                    |
+
+### Association
+
+- belongs_to :user
+- has_one :purchase_info
+
+
+## purchase_infoテーブル
+
+| Column      | Type    | Options                        |
+| ----------- | ------- | ------------------------------ |
+| users_id    | integer | null: false, foreign_key: true |
+| products_id | integer | null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :user
+- belongs_to :product
