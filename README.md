@@ -62,6 +62,7 @@ BASIC_AUTH_USER:  testman
 
 - has_many :users_addresses
 - has_many :products
+- has_many :purchase_info
 
 
 ## users_addressesテーブル
@@ -101,6 +102,7 @@ BASIC_AUTH_USER:  testman
 
 - belongs_to :users
 - has_one :users_addresses
+- has_one :purchase_info
 
 
 ## purchase_infoテーブル
@@ -109,3 +111,8 @@ BASIC_AUTH_USER:  testman
 | ----------- | ------- | ------------------------------ |
 | users_id    | integer | null: false, foreign_key: true |
 | products_id | integer | null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :users
+- belongs_to :products
