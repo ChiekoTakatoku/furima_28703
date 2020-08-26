@@ -71,7 +71,7 @@ BASIC_AUTH_USER:  testman
 | ------------ | ------- | ------------------------------ |
 | users_id     | integer | null: false, foreign_key: true |
 | postal_code  | string  | null: false                    |
-| prefectures  | string  | null: false                    |
+| prefectures  | integer | null: false                    |
 | city         | string  | null: false                    |
 | address      | string  | null: false                    |
 | building     | string  |                                |
@@ -92,16 +92,15 @@ BASIC_AUTH_USER:  testman
 | description      | text    | null: false                    |
 | price            | integer | null: false                    |
 | user             | string  | null: false, foreign_key: true |
-| category         | string  | null: false                    |
-| condition        | string  | null: false                    |
-| postage_type     | string  | null: false                    |
-| prefectures      | string  | null: false                    |
-| preparation_days | string  | null: false                    |
+| category         | integer | null: false                    |
+| condition        | integer | null: false                    |
+| postage_type     | integer | null: false                    |
+| prefectures      | integer | null: false                    |
+| preparation_days | integer | null: false                    |
 
 ### Association
 
 - belongs_to :users
-- has_one :users_addresses
 - has_one :purchase_info
 
 
