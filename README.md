@@ -60,7 +60,6 @@ BASIC_AUTH_USER:  testman
 
 ### Association
 
-- has_many :users_addresses
 - has_many :products
 - has_many :purchase_info
 
@@ -69,7 +68,7 @@ BASIC_AUTH_USER:  testman
 
 | Column       | Type    | Options                        |
 | ------------ | ------- | ------------------------------ |
-| users_id     | integer | null: false, foreign_key: true |
+| product_id   | integer | null: false, foreign_key: true |
 | postal_code  | string  | null: false                    |
 | prefectures  | integer | null: false                    |
 | city         | string  | null: false                    |
@@ -79,8 +78,7 @@ BASIC_AUTH_USER:  testman
 
 ### Association
 
-- belongs_to :users
-- belongs_to :products
+- belongs_to :product
 
 
 ## productsテーブル
@@ -91,7 +89,7 @@ BASIC_AUTH_USER:  testman
 | image            | string  | null: false                    |
 | description      | text    | null: false                    |
 | price            | integer | null: false                    |
-| user             | string  | null: false, foreign_key: true |
+| user             | integer | null: false, foreign_key: true |
 | category         | integer | null: false                    |
 | condition        | integer | null: false                    |
 | postage_type     | integer | null: false                    |
@@ -100,7 +98,7 @@ BASIC_AUTH_USER:  testman
 
 ### Association
 
-- belongs_to :users
+- belongs_to :user
 - has_one :purchase_info
 
 
@@ -113,5 +111,5 @@ BASIC_AUTH_USER:  testman
 
 ### Association
 
-- belongs_to :users
-- belongs_to :products
+- belongs_to :user
+- belongs_to :product

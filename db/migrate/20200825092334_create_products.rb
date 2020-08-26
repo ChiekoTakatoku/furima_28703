@@ -5,7 +5,7 @@ class CreateProducts < ActiveRecord::Migration[6.0]
       t.string     :image                 , null: false
       t.text       :description           , null: false
       t.integer    :price                 , null: false
-      t.string     :user                  , null: false, foreign_key: true
+      t.integer    :user                  , null: false, foreign_key: true
       t.integer    :category_id           , null: false
       t.integer    :condition_id          , null: false
       t.integer    :postage_type_id       , null: false
