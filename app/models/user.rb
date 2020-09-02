@@ -7,7 +7,7 @@ class User < ApplicationRecord
   has_many :purchase_info
 
   validates :nickname, presence: true
-  validates :email, presence: true, uniqueness: true#, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i}
+  validates :email, presence: true, uniqueness: true, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i}
   validates :password, presence: true, length: { minimum: 6 }, format: { with: /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i }
   validates :password_confirmation, presence: true
   validates :birthday, presence: true
