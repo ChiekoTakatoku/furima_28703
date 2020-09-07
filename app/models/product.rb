@@ -7,7 +7,7 @@ class Product < ApplicationRecord
   validates :name, presence: true
   validates :image, presence: true
   validates :description, presence: true
-  validates :price, presence: true, format: { with: /\A[0-9]+\z/ }, numericality: { only_integer: true, greater_than: 300, less_than: 9999999}
+  validates :price, presence: true, format: { with: /\A[0-9]+\z/ }, numericality: { only_integer: true, greater_than: 300, less_than: 9_999_999 }
   validates :user_id, presence: true
 
   belongs_to_active_hash :category

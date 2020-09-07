@@ -1,5 +1,4 @@
 class ProductsController < ApplicationController
-
   def index
     # @products = Product.order("created_at DESC")
   end
@@ -26,5 +25,4 @@ class ProductsController < ApplicationController
   def product_params
     params.require(:product).permit(:name, :image, :description, :price, :category_id, :condition_id, :postage_type_id, :prefectures_id, :preparation_days_id).merge(user_id: current_user.id)
   end
-
 end
