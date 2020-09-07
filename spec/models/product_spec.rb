@@ -1,14 +1,14 @@
 require 'rails_helper'
 describe Product do
   before do
-    @product = FactoryBot.build(:product)
+    user = FactoryBot.create(:user)
+    @product = FactoryBot.build(:product, user_id: user.id)
     @product.image = fixture_file_upload('/files/ヤギ1.jpg')
   end
 
   describe '商品出品' do
     context '商品出品がうまく行く時' do
       it 'user_id、name、description、price、category_id、condition_id、postage_type_id、prefectures_id、preparation_days_idが存在すれば出品できる' do
-        user = FactoryBot.create(:user)
         expect(@product).to be_valid
       end
     end
