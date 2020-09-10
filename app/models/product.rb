@@ -16,5 +16,5 @@ class Product < ApplicationRecord
   belongs_to_active_hash :prefecture
   belongs_to_active_hash :preparation_day
 
-  validates :category_id, :condition_id, :postage_type_id, :prefectures_id, :preparation_days_id, numericality: { other_than: 0 }
+  validates :category_id, :condition_id, :postage_type_id, :prefecture_id, :preparation_day_id, numericality: { other_than: 0 }
 end

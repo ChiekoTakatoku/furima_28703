@@ -41,8 +41,8 @@ ActiveRecord::Schema.define(version: 2020_09_03_024559) do
     t.integer "category_id", null: false
     t.integer "condition_id", null: false
     t.integer "postage_type_id", null: false
-    t.integer "prefectures_id", null: false
-    t.integer "preparation_days_id", null: false
+    t.integer "prefecture_id", null: false
+    t.integer "preparation_day_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -72,7 +72,7 @@ ActiveRecord::Schema.define(version: 2020_09_03_024559) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  create_table "users_addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+  create_table "users_addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "product_id", null: false
     t.string "postal_code", null: false
     t.integer "prefectures_id", null: false
