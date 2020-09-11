@@ -3,7 +3,7 @@ class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit]
 
   def index
-    @products = Product.order("created_at DESC")
+    @products = Product.order('created_at DESC')
   end
 
   def new
