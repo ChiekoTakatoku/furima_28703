@@ -8,7 +8,7 @@ describe Product do
 
   describe '商品出品' do
     context '商品出品がうまく行く時' do
-      it 'user_id、name、description、price、category_id、condition_id、postage_type_id、prefectures_id、preparation_days_idが存在すれば出品できる' do
+      it 'user_id、name、description、price、category_id、condition_id、postage_type_id、prefecture_id、preparation_day_idが存在すれば出品できる' do
         expect(@product).to be_valid
       end
     end
@@ -44,13 +44,13 @@ describe Product do
         @product.valid?
         expect(@product.errors.full_messages).to include('Postage type is not a number')
       end
-      it '発送元の地域:prefectures_idが空だと出品できない' do
-        @product.prefectures_id = nil
+      it '発送元の地域:prefecture_idが空だと出品できない' do
+        @product.prefecture_id = nil
         @product.valid?
-        expect(@product.errors.full_messages).to include('Prefectures is not a number')
+        expect(@product.errors.full_messages).to include('Prefecture is not a number')
       end
-      it '発送までの日数:preparation_days_idが空だと出品できない' do
-        @product.preparation_days_id = nil
+      it '発送までの日数:preparation_day_idが空だと出品できない' do
+        @product.preparation_day_id = nil
         @product.valid?
         expect(@product.errors.full_messages).to include('Preparation days is not a number')
       end

@@ -70,7 +70,7 @@ BASIC_AUTH_USER:  testman
 | ------------ | ------- | ------------------------------ |
 | product_id   | integer | null: false, foreign_key: true |
 | postal_code  | string  | null: false                    |
-| prefectures  | integer | null: false                    |
+| prefecture   | integer | null: false                    |
 | city         | string  | null: false                    |
 | address      | string  | null: false                    |
 | building     | string  |                                |
@@ -93,8 +93,8 @@ BASIC_AUTH_USER:  testman
 | category         | integer | null: false                    |
 | condition        | integer | null: false                    |
 | postage_type     | integer | null: false                    |
-| prefectures      | integer | null: false                    |
-| preparation_days | integer | null: false                    |
+| prefecture       | integer | null: false                    |
+| preparation_day  | integer | null: false                    |
 
 ### Association
 
