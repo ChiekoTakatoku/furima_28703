@@ -1,7 +1,7 @@
 class OrdersController < ApplicationController
 
   def index
-    @product = Product.find_by(params[:id])
+    @product = Product.find(params[:id])
   end
 
   def create
@@ -9,4 +9,8 @@ class OrdersController < ApplicationController
     # saveの有無で遷移先を分岐させる
   end
 
+  private
+  def order_params
+    params.require(:order).merge(user_id: current_user.id, product_id: params[:product_id])
+  end
 end
