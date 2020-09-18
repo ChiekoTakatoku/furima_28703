@@ -1,14 +1,16 @@
 class Product < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :user
-  has_one :purchase_info
+  has_one :order
   has_one_attached :image
 
-  validates :name, presence: true
-  validates :image, presence: true
-  validates :description, presence: true
-  validates :price, presence: true, format: { with: /\A[0-9]+\z/ }, numericality: { only_integer: true, greater_than: 300, less_than: 9_999_999 }
-  validates :user_id, presence: true
+  with_options presence: true do
+    validates :name
+    validates :image
+    validates :description
+    validates :price, format: { with: /\A[0-9]+\z/ }, numericality: { only_integer: true, greater_than: 300, less_than: 9_999_999 }
+    validates :user_id
+  end
 
   belongs_to_active_hash :category
   belongs_to_active_hash :condition

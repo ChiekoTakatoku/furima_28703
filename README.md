@@ -61,14 +61,14 @@ BASIC_AUTH_USER:  testman
 ### Association
 
 - has_many :products
-- has_many :purchase_info
+- has_many :orders
 
 
-## users_addressesテーブル
+## user_addressesテーブル
 
 | Column       | Type    | Options                        |
 | ------------ | ------- | ------------------------------ |
-| product_id   | integer | null: false, foreign_key: true |
+| user_id      | integer | null: false, foreign_key: true |
 | postal_code  | string  | null: false                    |
 | prefecture   | integer | null: false                    |
 | city         | string  | null: false                    |
@@ -78,7 +78,7 @@ BASIC_AUTH_USER:  testman
 
 ### Association
 
-- belongs_to :product
+- belongs_to :order
 
 
 ## productsテーブル
@@ -99,10 +99,10 @@ BASIC_AUTH_USER:  testman
 ### Association
 
 - belongs_to :user
-- has_one :purchase_info
+- has_one :order
 
 
-## purchase_infoテーブル
+## ordersテーブル
 
 | Column      | Type    | Options                        |
 | ----------- | ------- | ------------------------------ |
@@ -113,3 +113,4 @@ BASIC_AUTH_USER:  testman
 
 - belongs_to :user
 - belongs_to :product
+- has_one :user_address
