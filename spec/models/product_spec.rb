@@ -52,7 +52,7 @@ describe Product do
       it '発送までの日数:preparation_day_idが空だと出品できない' do
         @product.preparation_day_id = nil
         @product.valid?
-        expect(@product.errors.full_messages).to include('Preparation days is not a number')
+        expect(@product.errors.full_messages).to include('Preparation day is not a number')
       end
       it '価格:priceが空だと出品できない' do
         @product.price = nil

@@ -68,7 +68,7 @@ BASIC_AUTH_USER:  testman
 
 | Column       | Type    | Options                        |
 | ------------ | ------- | ------------------------------ |
-| user_id      | integer | null: false, foreign_key: true |
+| order_id     | integer | null: false, foreign_key: true |
 | postal_code  | string  | null: false                    |
 | prefecture   | integer | null: false                    |
 | city         | string  | null: false                    |
