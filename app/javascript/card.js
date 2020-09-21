@@ -31,46 +31,8 @@ const pay = () => {
       document.getElementById("charge-form").submit();
       document.getElementById("charge-form").reset();
     }
-    // alert("card-error")
     });
   });
  };
  
  window.addEventListener("load", pay);
-
-// document.addEventListener(
-//   console.log("ok")
-//   "DOMContentLoaded", e => {
-//     Payjp.setPublicKey("PAYJP_PUBLIC_KEY");
-//     var btn = document.getElementById('charge-form');
-//     btn.addEventListener("click", (e) => {
-//       e.preventDefault();
-
-//       var card = {
-//         number: $("#number").val(),
-//         cvc: $("#cvc").val(),
-//         exp_month: $("#exp_month").val(),
-//         exp_year: $("#exp_year").val()
-//       }; 
-
-
-//       Payjp.createToken(card, (status, response) => {
-//         if (status === 200) {
-//           $("#number").removeAttr("name");
-//           $("#cvc").removeAttr("name");
-//           $("#exp_month").removeAttr("name");
-//           $("#exp_year").removeAttr("name"); 
-//           $("#card_token").append(
-//             $('<input type="hidden" name="payjp-token">').val(response.id)
-//             document.inputForm.submit();
-//             );
-//             console.log(status);
-//         //   alert("登録が完了しました"); 
-//         // } else {
-//         //   alert("カード情報が正しくありません。"); 
-//         }
-//       });
-//     });
-//   },
-//   false
-// );

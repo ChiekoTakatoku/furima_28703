@@ -89,7 +89,7 @@ BASIC_AUTH_USER:  testman
 | image            | string  | null: false                    |
 | description      | text    | null: false                    |
 | price            | integer | null: false                    |
-| user             | integer | null: false, foreign_key: true |
+| user_id          | integer | null: false, foreign_key: true |
 | category         | integer | null: false                    |
 | condition        | integer | null: false                    |
 | postage_type     | integer | null: false                    |
