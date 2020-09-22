@@ -41,13 +41,13 @@ class OrdersController < ApplicationController
   end
 
   def sold_out
-    if product.order.present?
+    if @product.order.present?
       redirect_to root_path
     end
   end
 
   def seller_ban
-    if product.user_id == current_user.id
+    if @product.user_id == current_user.id
       redirect_to root_path
     end
   end
