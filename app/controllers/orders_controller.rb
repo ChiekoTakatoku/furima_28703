@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_product, only: [:index, :create, :pay_item]
+  before_action :set_product, only: [:index, :create, :pay_item, :sold_out, :seller_ban]
   before_action :seller_ban
   before_action :sold_out
 
@@ -41,14 +41,12 @@ class OrdersController < ApplicationController
   end
 
   def sold_out
-    product = Product.find(params[:id])
     if product.order.present?
       redirect_to root_path
     end
   end
 
   def seller_ban
-    product = Product.find(params[:id])
     if product.user_id == current_user.id
       redirect_to root_path
     end
