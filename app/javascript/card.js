@@ -32,6 +32,7 @@ const pay = () => {
       document.getElementById("charge-form").submit();
       document.getElementById("charge-form").reset();
       console.log(card)
+      
     });
   });
  };
